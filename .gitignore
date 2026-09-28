@@ -48,7 +48,6 @@ build-*/
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
-Makefile
 install_manifest.txt
 compile_commands.json
 
@@ -67,3 +66,9 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+
+# Compiled lecture demo binaries (bare names, no extension)
+lect01/flawedlist
+lect01/demo
+lect01/complex_demo
+lect02/demo
