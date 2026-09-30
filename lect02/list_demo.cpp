@@ -8,7 +8,7 @@ using namespace std;
 
 class CustomList {
 public:
-    CustomList():head(nullptr){}
+
     ~CustomList() {
         clear();
     }
@@ -82,7 +82,7 @@ void demo2_copy_a_list() {
 
 int main() {
     demo1_first_list();
-    demo2_copy_a_list();
+  //  demo2_copy_a_list();
     cout << "done" << endl;
     return 0;
 }
