@@ -1,7 +1,5 @@
 # Lecture 2: Memory bugs, the Big Four, operator overloading
 
-Plan: live demo first, few slides. Crash, ask the room, gather evidence, conclude.
-
 ## Files
 
 | File | Use |
@@ -39,13 +37,4 @@ Print on entry (before freeing) so both messages appear before the abort.
 Two different objects, one chain. The destructor did its job; the default copy planted the bug.
 Fix: `solutions/list_demo.cpp` (deep copy ctor, `operator=` with self-check, `clear()`).
 
-## Complex (~15 min)
 
-`complex_bigfour.cpp` is the finished version. Live-code the copy ctor and `operator=`
-in front of the class, then say "this is exactly what the default does." The `return *this`
-is what lets `a = b = c` print two `copy assignment` lines.
-
-## Don't
-
-Open on the map. Narrate every LLDB command. Put a print in `Complex`'s destructor.
-Live-code `operator<<` (slides only; `complex_bigfour.cpp` has a `print()` you can call from it).
