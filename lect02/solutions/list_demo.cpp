@@ -8,12 +8,37 @@ using namespace std;
 
 class CustomList {
 public:
-   // Class invariant: head stores the address of a valid linkedlist
-    CustomList(): head(nullptr){} // Constructor is one of four special functions
-    ~CustomList(){
-        cout << "Destructor called" << endl;
-        clear(); // No memory leak
+    CustomList() : head(nullptr) {}                     // Demo 1 fix
+
+    // Demo 2 fix: deep copy constructor
+    CustomList(const CustomList& other) : head(nullptr) {
+        copyFrom(other);
     }
+
+    // Demo 2 fix: deep copy assignment
+    CustomList& operator=(const CustomList& other) {
+        if (this != &other) {   // self-assignment: don't free what we're copying
+            clear();            // the object already exists: free old nodes first
+            copyFrom(other);
+        }
+        return *this;
+    }
+
+    ~CustomList() {
+        clear();
+    }
+
+    // Frees all nodes and resets the list to empty
+    void clear() {
+        Node* current = head;
+        while (current != nullptr) {
+            Node* next = current->next;
+            delete current;
+            current = next;
+        }
+        head = nullptr;
+    }
+
     void push_back(const string& val) {
         Node* newNode = new Node(val);
 
@@ -37,17 +62,6 @@ public:
         cout << "null" << endl;
     }
 
-    // Frees all nodes and resets the list to empty
-    void clear() {
-        Node* current = head;
-        while (current != nullptr) {
-            Node* next = current->next;
-            delete current;
-            current = next;
-        }
-        head = nullptr;
-    }
-
 private:
     struct Node {
         string value;
@@ -56,6 +70,16 @@ private:
     };
 
     Node* head;
+
+    // Deep copy: a brand new chain with the same values.
+    void copyFrom(const CustomList& other) {
+        Node* tail = nullptr;
+        for (Node* cur = other.head; cur != nullptr; cur = cur->next) {
+            Node* n = new Node(cur->value);
+            if (tail == nullptr) head = n; else tail->next = n;
+            tail = n;
+        }
+    }
 };
 
 void demo1_first_list() {
@@ -79,7 +103,7 @@ void demo2_copy_a_list() {
     cout << "original: "; original.print();
     cout << "backup:   "; backup.print();
     cout << "leaving demo2..." << endl;
-}  
+}   // both lists are destroyed here
 
 int main() {
     demo1_first_list();
