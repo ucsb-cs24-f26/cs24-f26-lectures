@@ -8,22 +8,6 @@ using namespace std;
 
 class CustomList {
 public:
-
-    ~CustomList() {
-        clear();
-    }
-
-    // Frees all nodes and resets the list to empty
-    void clear() {
-        Node* current = head;
-        while (current != nullptr) {
-            Node* next = current->next;
-            delete current;
-            current = next;
-        }
-        head = nullptr;
-    }
-
     void push_back(const string& val) {
         Node* newNode = new Node(val);
 
@@ -45,6 +29,17 @@ public:
             current = current->next;
         }
         cout << "null" << endl;
+    }
+
+    // Frees all nodes and resets the list to empty
+    void clear() {
+        Node* current = head;
+        while (current != nullptr) {
+            Node* next = current->next;
+            delete current;
+            current = next;
+        }
+        head = nullptr;
     }
 
 private:
