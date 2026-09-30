@@ -71,4 +71,8 @@ Testing/
 lect01/flawedlist
 lect01/demo
 lect01/complex_demo
-lect02/demo
+lect02/listdemo
+lect02/complex_bigfour
+
+# macOS debug symbol bundles
+*.dSYM/

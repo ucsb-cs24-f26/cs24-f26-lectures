@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug listdemo",
+      "program": "${workspaceFolder}/listdemo",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "build listdemo"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug complex_bigfour",
+      "program": "${workspaceFolder}/complex_bigfour",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "build complex_bigfour"
+    }
+  ]
+}
