@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug flawedlist",
+      "program": "${workspaceFolder}/flawedlist",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "build flawedlist"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug demo",
+      "program": "${workspaceFolder}/demo",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "build demo"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug complex_demo",
+      "program": "${workspaceFolder}/complex_demo",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "preLaunchTask": "build complex_demo"
+    }
+  ]
+}
