@@ -73,6 +73,8 @@ lect01/demo
 lect01/complex_demo
 lect02/listdemo
 lect02/complex_bigfour
+lect04/stl_tour
+lect04/timing_lab
 
 # macOS debug symbol bundles
 *.dSYM/
