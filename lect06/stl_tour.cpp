@@ -65,8 +65,7 @@ int main() {
     s.insert(1);
     s.insert(60);
     s.insert(100);
-    s.insert(2); // If there are n keys in the set, then inserting a new key running time O(logn)
-                // Insert if O(logn)
+    s.insert(2); // If there are n keys in the set, then the running time for inserting a new key is O(logn)
     target = 21;
     cout <<"Find " << target << " in the set " << endl;
     cout<< s.count(target) <<" " << (s.find(target) != s.end()) << endl;   //search operation
@@ -76,7 +75,8 @@ int main() {
     auto it = s.begin(); // it is an iterator, next lecture!!
     cout << "min " << *it << endl;  // should print 1 //O(lo gn )
     it++; // successor of a key : O(log n )
-    cout << "next larger value (successor): " << *it << endl; // should after 1, 2 is the next larger key successor(1) is 2
+    cout << "next larger value (successor): " << *it << endl; // 2 is the next larger key after 1
+                                                              // successor(1) is 2
 
 
 
