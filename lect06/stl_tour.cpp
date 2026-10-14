@@ -11,19 +11,23 @@
 #include <algorithm>
 
 using namespace std;
-void print(vector<int> & v){
+
+template <class T>
+void print(T &v){
     for (auto e : v){ // e is the loop variable, auto keyword is automatically figures out the type of e.
         cout << e << " ";
     }
     cout << endl;
 }
 
-void print(list<int> & v){
-    for (auto e : v){ // e is the loop variable, auto keyword is automatically figures out the type of e.
-        cout << e << " ";
+
+void print_long(set<int> & v){
+    for (auto it = v.begin(); it != v.end(); it++){ // e is the loop variable, auto keyword is automatically figures out the type of e.
+        cout << *it << " ";
     }
     cout << endl;
 }
+
 
 int main() {
     vector<int> v {10, 20, 5, 50}; // Array --- dynamic array
@@ -77,9 +81,10 @@ int main() {
     it++; // successor of a key : O(log n )
     cout << "next larger value (successor): " << *it << endl; // this line should print the next larger key after 1
                                                               // also called successor(1), which is 2
-
-
-
+    print(s); // why does print(s) print keys in sorted order?
+    cout << " Long version of in order traversal using set's iterator" << endl;
+    print_long(s); 
+    cout << endl;
 
 
 
