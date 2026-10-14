@@ -72,11 +72,11 @@ int main() {
     // search: O(logn )
     // What is the under the hood of set that allows fast insertions and fast search??
     // set is a balanced BST, h = O(logn) which is why insert and find are both O(logn)
-    auto it = s.begin(); // it is an iterator, next lecture!!
+    auto it = s.begin(); // "it" is an iterator, next lecture!!
     cout << "min " << *it << endl;  // should print 1 //O(lo gn )
     it++; // successor of a key : O(log n )
-    cout << "next larger value (successor): " << *it << endl; // 2 is the next larger key after 1
-                                                              // successor(1) is 2
+    cout << "next larger value (successor): " << *it << endl; // this line should print the next larger key after 1
+                                                              // also called successor(1), which is 2
 
 
 
