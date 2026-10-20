@@ -79,7 +79,23 @@ void BST::printPreOrder(Node *n) const {
 
 
 void BST::printBreadthFirst() const{
-	
+	queue<Node*> q;
+	if(!root) return;
+	// insert the root into the queue
+	q.push(root);
+	while(!q.empty()){
+		// print the front element -- front()
+		Node* fr = q.front();
+		cout << fr->info << " "; //visit the front element
+		// delete the front element -- pop()
+		q.pop();
+		// if there is a left child , push in the left child
+		if(fr->left) q.push(fr->left);
+		// if there is a right child, push in the right child
+		if(fr->right) q.push(fr->right);
+	}
+	cout << endl;
+
 }
 
 

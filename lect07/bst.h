@@ -26,7 +26,7 @@ class BST {
         Node(int v = 0) : info(v), left(nullptr), right(nullptr), parent(nullptr) { }
     };
 
-    Node *root;
+    Node *root; // Only a pointer to represent the BST
     // recursive utility functions for use by public methods above
     //Node* getNodeFor(int value, Node* n) const; // IMPLEMENT THIS FIRST: returns the node for a given value or NULL if none exists
     void clear(Node *n); // for destructor
