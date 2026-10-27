@@ -21,6 +21,29 @@ struct Patient {
     string name;
     int severity;    // 1 = most critical
     int arrivalTime;
+    // // overload the < operator for type Patient
+    // // Remember a < b means a has lower priority than b
+    // bool operator<(const Patient& rhs) const{
+    //     if(severity!= rhs.severity)  {
+    //         return severity > rhs.severity;
+    //     }
+    //     return arrivalTime > rhs.arrivalTime; // later arrival time has lower priority
+    // }
+};
+template <class T>
+class Cmp{
+    public:
+    // job of this class is simply to compare two things of type T
+    // Usage is if Cmp(a, b) is True then a has less priority than b
+    // overload the function operator to compare two objects of type T
+    bool operator()(const T& a, const T&b) const{
+        // overload the < operator for type Patient
+        // Remember a < b means a has lower priority than b
+        if(a.severity!= b.severity)  {
+            return a.severity > b.severity;
+        }
+        return a.arrivalTime > b.arrivalTime; // later arrival time has lower priority
+    } 
 };
 vector<Patient> waiting_room = {
     {"Alice",  3,  1},   // Moderate,  arrived at t=1
@@ -34,6 +57,17 @@ vector<Patient> waiting_room = {
 
 int main(int argc, char const *argv[])
 {
-    /* code */
+    priority_queue<Patient, vector<Patient>, Cmp<Patient>> ERTriage;  //  If a < b, then a has lower priority than b
+    for(auto p: waiting_room){
+        ERTriage.push(p); // O(logn)
+    }
+    
+    while(!ERTriage.empty()){
+        cout << "Most critical patient: " << ERTriage.top().name << endl; // O(1)
+        ERTriage.pop(); // O(log  n)
+        cout << "Most critical patient served: " << endl;
+    }
+
     return 0;
 }
+
