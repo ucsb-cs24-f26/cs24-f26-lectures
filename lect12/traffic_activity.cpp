@@ -31,7 +31,7 @@ vector<string> traffic_log = {
 int uniqueVisitors(const vector<string>& log) {
     // TODO: Your code here
 
-    return 42
+    return 42;
 }
 
 // ============================================================
@@ -60,7 +60,7 @@ unordered_map<string, int> countVisits(const vector<string>& log) {
 // ============================================================
 vector<pair<string, int>> topKVisitors(const unordered_map<string, int>& counts, int k) {
 
-    return {};
+    return vector<pair<string, int>>();
 }
 
 

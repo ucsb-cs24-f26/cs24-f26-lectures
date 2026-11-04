@@ -32,7 +32,7 @@ void run(const std::string& label, bool uniform_random_ip, bool randomize_seed,
 }
 
 int main() {
-    size_t m = 10, n = 10;
+    size_t m = 10, n = 5;
 
     // Run 1: uniform random IPs — chains stay short, O(1) in practice
     run("Uniform random IPs (deterministic hash)", true, false, m, n);
