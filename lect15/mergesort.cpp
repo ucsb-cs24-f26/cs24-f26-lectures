@@ -4,8 +4,53 @@
 #include <vector>
 using namespace std;
 
-void mergeSort(vector<int>& v){
-  
+void merge(vector<int>& result, vector<int>& left, vector<int> & right){
+    // Complexity analysis:  Assume left.size() is l , right.size() is m 
+    // Every iteration of the while loop, one element is placed into the result vector
+    // until all the elements of teh left and right vectors are placed. So in total l + m placements
+    // So l + m iterations and every iteration takes constant time.
+    // O(l + m)
+    int i = 0; // index of the leading element of left
+    int j = 0; // index of the leading element of right
+    int k = 0; // index of the leading element of result
+
+    while ( i < left.size() && j < right.size()) {
+        // left and right leading elements compete
+        if (left[i] < right[j]){
+            // winner is left leading element
+            result[k] = left[i];
+            i++;
+            k++;
+        } else{
+            result[k] = right[j];
+            j++;
+            k++;
+
+        }
+    }
+    while (i < left.size()){
+        result[k] = left[i];
+        i++;
+        k++;
+    }
+    while (j < right.size()){
+        result[k] = right[j];
+        j++;
+        k++;
+
+    }
+}
+
+void mergeSort(vector<int>& v){ // input of size n
+    if (v.size() <= 1) return; // base case
+
+    int mid = v.size() / 2 ;
+    vector<int> left(v.begin(), v.begin() + mid);  // copy n/2 elements
+    vector<int> right(v.begin() + mid, v.end()); // copy n/2  elements
+    mergeSort(left); 
+    mergeSort(right);
+    merge(v, left, right); // what is the running time if left.size() is l , m elements in riht half
+
 }
 
 
